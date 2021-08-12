@@ -216,7 +216,10 @@ def main(sysargs=sys.argv[1:]):
     snakemake.snakemake(
         snakefile=snakefile_path,
         config=config,
-        forceall=True,
+        # don't regenerate everything in case of crashes
+        forceall=False,
+        # print the actual commands used
+        printshellcmds=True,
         cores=config["cores"],
         latency_wait=config["latency_wait"],
     )
