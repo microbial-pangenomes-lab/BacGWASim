@@ -16,6 +16,7 @@ rule all:
     input:
         expand("{outputDIR}/simulations/phenSim/{replication_index}/sim{replication_index}.png", outputDIR=config["output_dir"], replication_index=range(config['phen_replication'])),
         expand("{outputDIR}/simulations/genSim/sims.vcf", outputDIR=config["output_dir"]),
+        expand("{outputDIR}/simulations/genSim/genSim.fasta", outputDIR=config["output_dir"]),
         expand("{outputDIR}/simulations/phenSim/{replication_index}/phenSim.pickle", outputDIR=config["output_dir"], replication_index=range(config['phen_replication'])),
         plot_ld
 
